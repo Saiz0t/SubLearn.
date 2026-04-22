@@ -39,7 +39,7 @@ class SublearnApp(ctk.CTk):
         ctk.CTkButton(self, text="Загрузить субтитры", command=self.start_processing, **btn_style).grid(row=2, column=0,
                                                                                                         pady=10)
 
-    # --- ЛОГИКА ЗАГРУЗКИ ---
+    
     def start_processing(self):
         from tkinter import filedialog
         path = filedialog.askopenfilename(filetypes=[("Subtitle files", "*.srt")])
@@ -59,7 +59,7 @@ class SublearnApp(ctk.CTk):
             for word in unique_words:
                 try:
                     res = self.translator.translate(word)
-                    # Проверяем, что перевод не пустой и не содержит системную ошибку библиотеки
+                    
                     if res and "[ошибка" not in res.lower() and "MYMEMORY" not in res:
                         word_data.append((word, res))
                         print(f"Успешно: {word} -> {res}")
@@ -79,7 +79,7 @@ class SublearnApp(ctk.CTk):
             self.after(0, lambda: messagebox.showinfo("Успех", f"Готово! Сохранено слов: {len(word_data)}"))
         except Exception as e:
             self.after(0, lambda: messagebox.showerror("Ошибка", f"{e}"))
-    # --- РЕЖИМ ТЕСТА ---
+ 
     def start_cards_mode(self):
         if not os.path.exists(self.file_path):
             messagebox.showwarning("Внимание", "Сначала создайте файл!")
@@ -99,7 +99,6 @@ class SublearnApp(ctk.CTk):
     def show_test_ui(self):
         for widget in self.winfo_children(): widget.destroy()
 
-        # Слово сверху
         self.word_label = ctk.CTkLabel(self, text="", font=("Arial Bold", 38), text_color="white")
         self.word_label.pack(pady=(50, 30))
 
@@ -119,14 +118,12 @@ class SublearnApp(ctk.CTk):
         self.load_question()
 
     def load_question(self):
-        # Сброс цветов
         for btn in self.answer_buttons:
             btn.configure(fg_color=["#3B8ED0", "#1f538d"])
 
         correct_word, self.correct_ans = self.flashcards[self.current_card_index]
         self.word_label.configure(text=correct_word.upper())
 
-        # Генерируем варианты (правильный + 2 случайных)
         other_cards = [c for c in self.flashcards if c[1] != self.correct_ans]
         wrong_options = random.sample(other_cards, 2)
 
