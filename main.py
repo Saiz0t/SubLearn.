@@ -65,7 +65,7 @@ class SublearnApp(ctk.CTk):
                         print(f"Успешно: {word} -> {res}")
                 except:
                     print(f"Пропущено (ошибка сети): {word}")
-                    continue  # Просто идем к следующему слову
+                    continue 
 
             if not word_data:
                 self.after(0, lambda: messagebox.showwarning("Внимание",
@@ -137,7 +137,7 @@ class SublearnApp(ctk.CTk):
         selected = self.options[idx]
         if selected == self.correct_ans:
             self.answer_buttons[idx].configure(fg_color="green")
-            self.after(800, self.next_question) # Задержка перед следующим вопросом
+            self.after(800, self.next_question)
         else:
             self.answer_buttons[idx].configure(fg_color="red")
 
