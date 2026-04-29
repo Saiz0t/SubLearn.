@@ -3,8 +3,8 @@
 # 🎬 SubLearn
 
 [![Status](https://img.shields.io/badge/status-early%20dev-yellow?style=flat-square)](https://github.com/Saiz0t/SubLearn)
-[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/Saiz0t/SubLearn/blob/main/LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-Saiz0t-black?style=flat-square&logo=github)](https://github.com/Saiz0t)
+
 
 > *Изучай языки через контент, который любишь*
 
@@ -16,7 +16,7 @@
 
 **SubLearn** — это будущий инструмент для изучения иностранных языков с помощью субтитров. Идея проста: превратить пассивный просмотр фильмов и видео в активный учебный процесс.
 
-*Публичная версия репозитория пока пуста — я только начинаю работу над проектом.*
+*Публичная версия репозитория пока в процессе — я только начинаю работу над проектом.*
 
 ### 💡 Концепция
 
